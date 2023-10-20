@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 
 const Navbar = ({brandName}) => {
   return (
-    <nav className="flex justify-center w-full md:justify-between lg:max-w-screen-lg my-12 mx-auto">
+    <nav className="flex w-full md:max-w-screen-md xl:max-w-screen-lg my-6 mx-auto">
       <a href="#"
-        className="ml-4 lg:ml-0"
+        className="ml-2 lg:ml-0"
       >
-        <span className="text-xl text-pink-500">{brandName}</span>
+        <span className="text-sm sm:text-xl text-pink-500">{brandName}</span>
       </a>
     </nav>
   )
