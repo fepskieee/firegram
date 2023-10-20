@@ -9,7 +9,7 @@ const {
 
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, serverTimestamp } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: FIREBASE_API_KEY,
@@ -23,5 +23,10 @@ const firebaseConfig = {
 app = initializeApp(firebaseConfig);
 storage = getStorage(app);
 database = getFirestore(app);
+timestamp = serverTimestamp();
 
-export { storage, database }
+export {
+  storage,
+  database,
+  timestamp
+}
