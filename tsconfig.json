@@ -9,6 +9,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@firebase/*": ["src/firebase/*"],
       "@dao/*": ["src/shared/dao/*"],
+      "@utils/*": ["src/shared/utils/*"],
     },
   }
 }
