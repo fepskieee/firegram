@@ -1,17 +1,21 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Card from '@components/react/Card.jsx';
+import UploadForm from '@components/react/UploadForm';
 
-const title = "Gallery - firegram";
-const arr = [1,2,3]
+const title = "firegram";
+const arr = [...Array(10)] // [FIX] Replace this using hooks when firebase data is available
 ---
 
 <Layout {title} >
   <header class="w-full lg:max-w-screen-xl">
-    <h2 class="text-3xl text-center">Your Pictures</h2>
+    <h2 class="text-xl sm:text-3xl text-center">Your Pictures</h2>
   </header>
-  <section class="max-w-screen-sm sm:max-w-screen-lg h-fit mx-auto lg:mx-auto gap-3 mt-12">
-    <ul class="grid grid-flow-row lg:grid-cols-3 gap-5">
+  <div class="flex my-6 justify-center">
+    <UploadForm client:load/>
+  </div>
+  <section class="h-fit mx-auto mt-12">
+    <ul class="grid grid-cols-3 gap-1">
       {arr.map((item, index) => (
         <Card />
       ))}
