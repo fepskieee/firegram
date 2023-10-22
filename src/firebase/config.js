@@ -7,9 +7,9 @@ const {
   FIREBASE_APP_ID,
 } = import.meta.env
 
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-import { getFirestore, serverTimestamp } from "firebase/firestore";
+import firebase from "firebase/app";
+import "firebase/compat/storage";
+import "firebase/compat/firestore";
 
 const firebaseConfig = {
   apiKey: FIREBASE_API_KEY,
@@ -20,13 +20,13 @@ const firebaseConfig = {
   appId: FIREBASE_APP_ID,
 };
 
-app = initializeApp(firebaseConfig);
-storage = getStorage(app);
-database = getFirestore(app);
-timestamp = serverTimestamp();
+firebase.initializeApp(firebaseConfig);
+const storage = firebase.storage();
+const database = firebase.firestore();
+const serverTimestamp = firebase.firestore.FieldValue.getServerTimestamp();
 
 export {
   storage,
   database,
-  timestamp
+  serverTimestamp
 }
