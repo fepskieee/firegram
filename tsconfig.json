@@ -7,9 +7,10 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@firebase/*": ["src/firebase/*"],
+      "@firebase/*": ["src/shared/firebase/*"],
       "@dao/*": ["src/shared/dao/*"],
       "@utils/*": ["src/shared/utils/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
     },
   }
 }
