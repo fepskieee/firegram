@@ -1,24 +1,18 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import Card from '@components/react/Card.jsx';
 import UploadForm from '@components/react/UploadForm';
+import ImageGrid from '@components/react/ImageGrid';
 
 const title = "firegram";
-const arr = [...Array(10)] // [FIX] Replace this using hooks when firebase data is available
 ---
 
 <Layout {title} >
   <header class="w-full lg:max-w-screen-xl">
-    <h2 class="text-xl sm:text-3xl text-center">Your Pictures</h2>
+    <h2 class="text-xl sm:text-2xl text-center text-pink-400 font-semibold">Your Pictures</h2>
   </header>
-  <div class="flex my-6 justify-center">
-    <UploadForm client:load/>
+  <div class="my-6">
+    <UploadForm client:load />
+    <ImageGrid client:load />
   </div>
-  <section class="h-fit mx-auto mt-12">
-    <ul class="grid grid-cols-3 gap-1">
-      {arr.map((item, index) => (
-        <Card />
-      ))}
-    </ul>
-  </section>
+  
 </Layout>

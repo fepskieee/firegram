@@ -6,7 +6,7 @@ const Navbar = ({brandName}) => {
       <a href="#"
         className="ml-2 lg:ml-0"
       >
-        <span className="text-sm sm:text-xl text-pink-500">{brandName}</span>
+        <span className="text-sm sm:text-xl text-pink-500 font-bold">{brandName}</span>
       </a>
     </nav>
   )

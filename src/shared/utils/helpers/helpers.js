@@ -1,3 +1,3 @@
-import { timestamp } from "@firebase/config";
+import { serverTimestamp } from "@firebase/config";
 
-export const getServerTimestamp = () => timestamp();
+export const getServerTimestamp = () => serverTimestamp();

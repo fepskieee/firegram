@@ -1,32 +1,32 @@
 const {
-  FIREBASE_API_KEY,
-  FIREBASE_AUTH_DOMAIN,
-  FIREBASE_PROJECT_ID,
-  FIREBASE_STORAGE_BUCKET,
-  FIREBASE_MESSAGING_Sender_ID,
-  FIREBASE_APP_ID,
+  PUBLIC_FIREBASE_API_KEY,
+  PUBLIC_FIREBASE_AUTH_DOMAIN,
+  PUBLIC_FIREBASE_PROJECT_ID,
+  PUBLIC_FIREBASE_STORAGE_BUCKET,
+  PUBLIC_FIREBASE_MESSAGING_Sender_ID,
+  PUBLIC_FIREBASE_APP_ID,
 } = import.meta.env
 
-import firebase from "firebase/app";
-import "firebase/compat/storage";
-import "firebase/compat/firestore";
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+import { getFirestore, serverTimestamp as timestamp } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: FIREBASE_API_KEY,
-  authDomain: FIREBASE_AUTH_DOMAIN,
-  projectId: FIREBASE_PROJECT_ID,
-  storageBucket: FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: FIREBASE_MESSAGING_Sender_ID,
-  appId: FIREBASE_APP_ID,
+  apiKey: PUBLIC_FIREBASE_API_KEY,
+  authDomain: PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId:PUBLIC_FIREBASE_MESSAGING_Sender_ID,
+  appId: PUBLIC_FIREBASE_APP_ID,
 };
 
-firebase.initializeApp(firebaseConfig);
-const storage = firebase.storage();
-const database = firebase.firestore();
-const serverTimestamp = firebase.firestore.FieldValue.getServerTimestamp();
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const database = getFirestore(app);
+const serverTimestamp = () => timestamp();
 
 export {
   storage,
   database,
-  serverTimestamp
+  serverTimestamp,
 }
